@@ -1,0 +1,24 @@
+{
+  "name": "notification_db",
+  "version": "1.0.0",
+  "description": "this is the microservice that deals with database related API's for the notification system",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro",
+    "dev": "micro-dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^0.20.13",
+    "micro": "^9.3.4",
+    "micro-cors": "^0.1.1",
+    "micro-fork": "^3.0.0",
+    "mysql2": "^2.1.0",
+    "objection": "^2.1.3"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
+  }
+}
