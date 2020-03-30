@@ -10,7 +10,7 @@
                 "database": "dev_test"
             }
         },
-        "basURL" : "/notification",
+        "basURL" : "/db",
         "version" : "v1"
     },
     "staging": {
@@ -23,7 +23,7 @@
                 "database": "test"
             }
         },
-        "basURL" : "/notification",
+        "basURL" : "/db",
         "version" : "v1"
     },
     "prod": {
@@ -36,7 +36,7 @@
                 "database": "test"
             }
         },
-        "basURL" : "/notification",
+        "basURL" : "/db",
         "version" : "v1"
     }
 }
