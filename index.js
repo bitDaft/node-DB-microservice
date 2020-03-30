@@ -9,7 +9,7 @@ const microCors = require("micro-cors");
 const cors = microCors({ allowMethods: ["GET", "PUT", "POST"] });
 
 const config = require("./config.json");
-data = config[config.env];
+config = config[config.env];
 
 const tablemap = {
   table: Table
@@ -85,7 +85,7 @@ const middlewares = func => {
   return func;
 };
 const getBaseURL = () => {
-  return data.basURL + "/" + data.version;
+  return config.basURL + "/" + config.version;
 };
 // -----------------------------------
 // -----------------------------------
