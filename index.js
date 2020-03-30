@@ -3,7 +3,7 @@ const { router, get, post, put, del, options } = require("micro-fork");
 
 const { sendResponse, success, failure } = require("./helper.js");
 const db = require("./dbfn.js");
-const { Auth, Template, Notification, Resource } = require("./dbtables.js");
+const { Table } = require("./dbtables.js");
 
 const microCors = require("micro-cors");
 const cors = microCors({ allowMethods: ["GET", "PUT", "POST"] });
@@ -12,10 +12,7 @@ const config = require("./config.json");
 data = config[config.env];
 
 const tablemap = {
-  user: Auth,
-  template: Template,
-  notification: Notification,
-  resource: Resource
+  table: Table
 };
 
 // -----------------------------------
