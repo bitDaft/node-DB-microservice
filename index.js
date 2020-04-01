@@ -33,6 +33,16 @@ const getEntry = async (req, res) => {
     await db.get(tablemap[table], id)
   );
 };
+const getWhereEntry = async (req, res) => {
+  const table = req.params["table"];
+  const cond = json(req);
+  return sendResponse(
+    res,
+    success,
+    "GET_OK",
+    await db.getWhere(tablemap[table], cond)
+  );
+};
 const postEntry = async (req, res) => {
   const table = req.params["table"];
   const data = await json(req);
@@ -81,7 +91,7 @@ const notfound = (req, res) =>
   sendResponse(res, failure, "NOT_FOUND", "404 Not found", 404);
 
 const middlewares = func => {
-  //   func = cors(func);
+  func = cors(func);
   return func;
 };
 const getBaseURL = () => {
@@ -95,11 +105,12 @@ module.exports = router()(
 
   get(getBaseURL(), healthcheck),
 
-  get(getBaseURL() + "/:table", getAllEntry),
-  get(getBaseURL() + "/:table/:id", getEntry),
-  post(getBaseURL() + "/:table", postEntry),
-  put(getBaseURL() + "/:table/:id", putEntry),
-  del(getBaseURL() + "/:table/:id", delEntry),
+  get(getBaseURL() + "/:table", middlewares(getAllEntry)),
+  get(getBaseURL() + "/:table/:id", middlewares(getEntry)),
+  post(getBaseURL() + "/:table", middlewares(getWhereEntry)),
+  post(getBaseURL() + "/:table", middlewares(postEntry)),
+  put(getBaseURL() + "/:table/:id", middlewares(putEntry)),
+  del(getBaseURL() + "/:table/:id", middlewares(delEntry)),
 
   get("/*", middlewares(notfound)),
   post("/*", middlewares(notfound)),

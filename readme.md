@@ -4,6 +4,8 @@ This is boilerpate code for my database server api with just the simplest of fun
 
 It uses micro, mysql (can be changed), knex and objectionjs
 
+also uses micro-fork and micro-cors
+
 TODO : 
   [ ] add function to check whether the required fields are there in the body
   kind of like this  
