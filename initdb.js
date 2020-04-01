@@ -1,11 +1,11 @@
 const { Model } = require("objection");
 const Knex = require("knex");
 
-const config = require("./config.json");
+let config = require("./config.json");
 
-data = config[config.env];
+config = config[config.env];
 
-const knex = Knex(data.dbconfig);
+const knex = Knex(config.dbconfig);
 
 Model.knex(knex);
 
