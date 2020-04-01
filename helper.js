@@ -1,6 +1,6 @@
 const { send } = require("micro");
 
-responseObject = {
+let responseObject = {
   status: "SUCCESS",
   statusCode: 200,
   type: "",
